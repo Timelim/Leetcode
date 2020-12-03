@@ -1,3 +1,5 @@
+package Problem;
+
 public class Solution1299 {
 
     public int[] replaceElements(int[] arr) {

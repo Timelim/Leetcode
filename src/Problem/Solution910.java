@@ -1,3 +1,5 @@
+package Problem;
+
 import java.util.Arrays;
 //未通过
 public class Solution910 {
