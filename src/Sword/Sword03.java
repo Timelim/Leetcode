@@ -1,4 +1,4 @@
-package Problem;
+package Sword;
 
 public class Sword03 {
     public int findRepeatNumber(int[] nums) {
