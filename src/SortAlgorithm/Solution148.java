@@ -1,7 +1,5 @@
 package SortAlgorithm;
 
-import java.util.List;
-
 public class Solution148 {
     //自底向上归并排序
     public ListNode sortList(ListNode head) {

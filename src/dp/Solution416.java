@@ -1,8 +1,10 @@
 package dp;
 
+import java.util.Arrays;
+
 public class Solution416 {
     /**
-     * 背包问题
+     * 背包问题  这道题应该把值看成体积，装满背包，个数看成值
      * @param nums
      * @return
      */
@@ -13,8 +15,21 @@ public class Solution416 {
         }
         if(sum%2==1)
             return false;
+        boolean dp[]=new boolean[sum/2+1];
+        dp[0]=true;
+        for(int i=0;i<nums.length;i++){
+            for(int j=sum/2;j>=nums[i];j--){
+                dp[j] |= dp[j - nums[i]];
+            }
+        }
+//        for(int i=0;i<sum/2+1;i++)
+//            System.out.println(dp[i]);
+        return dp[sum/2];
+    }
 
-        return true;
+    public static void main(String[] args) {
+        Solution416 t=new Solution416();
+        System.out.println(t.canPartition(new int[]{2,2,1,1}));
     }
 }
 /*

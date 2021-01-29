@@ -10,6 +10,13 @@
     
     API:
     a[],b[]
-    Arrays.sort()
+    Arrays.sort(a)
     Arrays.equals(a,b);
-    Arrays.
+    Arrays.fill(a,0)
+  
+ ---
+ Solution42 接雨水
+      
+      1.把问题分解到微元，比如该题目中对应到每个位置来解决问题。
+      2.开空间节省时间。
+
