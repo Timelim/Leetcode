@@ -2,7 +2,6 @@ package Sword;
 
 public class Sword14 {
     public int cuttingRope(int n) {
-
         int dp[]=new int[n+1];
         if(n==2)
             return 1;

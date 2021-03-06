@@ -6,10 +6,10 @@ import java.math.BigDecimal;
 
 public class Test {
     public void test(){
-        double A1=0.862+0.06685;
-        double A2=0.10691;
-        double x0=0.0135;
-        double p=1.36272;
+        double A1=0.131+0.934;
+        double A2=0.131;
+        double x0=21.678;
+        double p=1.339;
         double y=0.9;
         double x;
 
