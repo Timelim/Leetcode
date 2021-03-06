@@ -3,6 +3,10 @@ package Problem;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.TreeMap;
 
 public class Test {
     public void test(){
@@ -45,7 +49,17 @@ public class Test {
     }
     public static void main(String[] args) {
         Test t= new Test();
-        t.test();
+        //t.test();
+        TreeMap<Integer,Integer> t2=new TreeMap<>((n1,n2)->{
+            int compare = n2-n1;
+            return Integer.compare(compare,0);});
+        t2.put(100,1213);
+
+        t2.put(300,1234);
+        t2.put(200,13);
+        t2.entrySet().stream().forEach(personStringEntry -> {
+            System.out.println(personStringEntry.getValue());
+        });
 
     }
 }
