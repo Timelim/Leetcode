@@ -7,76 +7,71 @@ public class Solution5 {
         }
         char[] tmp = s.toCharArray();
         int[] len = new int[tmp.length];
-        for(int i=0;i<tmp.length;i++) {
-            int low = i-1;
-            int high =i+1;
-            int l=1;
-            while(low>=0&&high<tmp.length)
-            {
-                if(tmp[low]==tmp[high]) {
-                    l+=2;
-                }
-                else{
+        for (int i = 0; i < tmp.length; i++) {
+            int low = i - 1;
+            int high = i + 1;
+            int l = 1;
+            while (low >= 0 && high < tmp.length) {
+                if (tmp[low] == tmp[high]) {
+                    l += 2;
+                } else {
                     break;
                 }
-                low-=1;
-                high+=1;
+                low -= 1;
+                high += 1;
             }
-            len[i]=l;
+            len[i] = l;
         }
 
         int[] len2 = new int[tmp.length];
-        for(int i=0;i<tmp.length;i++) {
+        for (int i = 0; i < tmp.length; i++) {
             int low = i;
-            int high =i+1;
-            int l=0;
-            while(low>=0&&high<tmp.length)
-            {
-                if(tmp[low]==tmp[high]) {
-                    l+=2;
-                }
-                else{
+            int high = i + 1;
+            int l = 0;
+            while (low >= 0 && high < tmp.length) {
+                if (tmp[low] == tmp[high]) {
+                    l += 2;
+                } else {
                     break;
                 }
-                low-=1;
-                high+=1;
+                low -= 1;
+                high += 1;
             }
-            len2[i]=l;
+            len2[i] = l;
         }
-        int max2=0;
-        int maxi2=0;
-        for(int i=0;i<tmp.length;i++){
-            if(len2[i]>max2){
-                max2=len2[i];
-                maxi2=i;
+        int max2 = 0;
+        int maxi2 = 0;
+        for (int i = 0; i < tmp.length; i++) {
+            if (len2[i] > max2) {
+                max2 = len2[i];
+                maxi2 = i;
             }
         }
-        int max=1;
-        int maxi=0;
-        for(int i=0;i<tmp.length;i++){
-            if(len[i]>max){
-                max=len[i];
-                maxi=i;
+        int max = 1;
+        int maxi = 0;
+        for (int i = 0; i < tmp.length; i++) {
+            if (len[i] > max) {
+                max = len[i];
+                maxi = i;
             }
         }
         System.out.println(max);
         System.out.println(max2);
-        String res="";
-        if(max>max2){
-            for(int i=maxi-(max-1)/2;i<=maxi+(max-1)/2;i++){
-                res+=tmp[i];
+        String res = "";
+        if (max > max2) {
+            for (int i = maxi - (max - 1) / 2; i <= maxi + (max - 1) / 2; i++) {
+                res += tmp[i];
             }
-        }
-        else{
-            for(int i=maxi2-max2/2+1;i<=maxi2+max2/2;i++) {
-                res+=tmp[i];
+        } else {
+            for (int i = maxi2 - max2 / 2 + 1; i <= maxi2 + max2 / 2; i++) {
+                res += tmp[i];
             }
         }
         return res;
     }
 
     public static void main(String[] args) {
-        Solution5 t =new Solution5();
+        Solution5 t = new Solution5();
         System.out.println(t.longestPalindrome("aacabdkacaa"));
     }
 }
