@@ -33,12 +33,14 @@ public class Traverse {
             }
         }
     }
-
+    public void postOrder(TreeNode root){
+        Stack<TreeNode> stack=new Stack<>();
+    }
     public void test(TreeNode root){
         if(root==null) return;
-        System.out.println(root.val);
         test(root.left);
         test(root.right);
+        System.out.println(root.val);
     }
     public static void main(String[] args) {
         TreeNode root=new TreeNode(3);

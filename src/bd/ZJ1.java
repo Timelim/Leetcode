@@ -3,7 +3,7 @@ package bd;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class bd1 {
+public class ZJ1 {
     //直接解答 解决60%，然后超时
     public void main1() {
         int []visit = new int[1000 + 1];
