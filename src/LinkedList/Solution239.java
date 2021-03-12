@@ -33,7 +33,7 @@ public class Solution239 {
         int ans[] = new int[nums.length - k + 1];
         Deque<Integer> deque = new LinkedList<>();
         for (int i = 0; i < k; i++) {
-            while (!deque.isEmpty() && deque.peekLast() <= nums[i]) {
+            while (!deque.isEmpty() && deque.peekLast() < nums[i]) {
                 deque.pollLast();
             }
             deque.offerLast(nums[i]);
