@@ -10,10 +10,10 @@ import java.util.TreeMap;
 
 public class Test {
     public void test(){
-        double A1=0.131+0.934;
-        double A2=0.131;
-        double x0=21.678;
-        double p=1.339;
+        double A1=0.89774;
+        double A2=-1.38234;
+        double x0=357.78438;
+        double p=1.46004;
         double y=0.9;
         double x;
 
@@ -23,9 +23,9 @@ public class Test {
         double tmp2=A1-A2;
         System.out.println("A1-A2: "+tmp2);
         double tmp3=tmp2/tmp1;
-        System.out.println("(y-A2)/(A1-A2): "+tmp3);
+        System.out.println("(A1-A2)/(y-A2): "+tmp3);
         double tmp4=tmp3-1.0;
-        System.out.println("(y-A2)/(A1-A2)-1.0: "+tmp4);
+        System.out.println("(A1-A2)/(y-A2)-1.0: "+tmp4);
         x=Math.pow(tmp4,1.0/p)*x0;
         System.out.println("x: "+x);
 
@@ -49,17 +49,17 @@ public class Test {
     }
     public static void main(String[] args) {
         Test t= new Test();
-        //t.test();
-        TreeMap<Integer,Integer> t2=new TreeMap<>((n1,n2)->{
-            int compare = n2-n1;
-            return Integer.compare(compare,0);});
-        t2.put(100,1213);
-
-        t2.put(300,1234);
-        t2.put(200,13);
-        t2.entrySet().stream().forEach(personStringEntry -> {
-            System.out.println(personStringEntry.getValue());
-        });
+        t.test();
+//        TreeMap<Integer,Integer> t2=new TreeMap<>((n1,n2)->{
+//            int compare = n2-n1;
+//            return Integer.compare(compare,0);});
+//        t2.put(100,1213);
+//
+//        t2.put(300,1234);
+//        t2.put(200,13);
+//        t2.entrySet().stream().forEach(personStringEntry -> {
+//            System.out.println(personStringEntry.getValue());
+//        });
 
     }
 }

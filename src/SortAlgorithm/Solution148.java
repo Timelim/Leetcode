@@ -62,6 +62,7 @@ public class Solution148 {
             res.next = l2;
         }
         return index.next;
+
     }
 }
 /*

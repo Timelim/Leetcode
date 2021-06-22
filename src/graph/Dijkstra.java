@@ -74,9 +74,7 @@ public class Dijkstra {
         for (int i = 1; i <= n; i++) {
             if (first > 0)
                 System.out.print(" ");
-            ;
             System.out.print(dis[i]);
-            ;
             first = 1;
         }
         System.out.println();

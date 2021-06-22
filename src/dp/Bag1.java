@@ -3,46 +3,44 @@ package dp;
 import java.util.Scanner;
 
 public class Bag1 {
-    //±³°üÎÊÌâ
-    // taskÊÓÎªÎïÆ·£¬taskÐèÒªµÄ·þÎñÆ÷ÊýÊÓÎª ÐèÒªµÄ±³°üÈÝÁ¿ weight£¬´¦ÀíµÄÎÄ¼þÊýÊÓÎªÎïÆ·µÄ¼ÛÖµvalue
-    // ÎÊÌâ×ª»¯Îª£¬ÇóÔÚ¹Ì¶¨ÈÝÁ¿´óÐ¡µÄ±³°üÄÚ ×°ÎïÆ·ËùµÃµÄ¼ÛÖµ×î´ó¡£
-    //dp[i][j]£¬i´ú±íÇ°i¼þÎïÆ·£¬j´ú±íÈÝÁ¿£¬dp[i][j]ÖµÎªÇ°i¼þÎïÆ·ÔÚjÈÝÁ¿ÏÂËùµÃµÄ×î´ó¼ÛÖµ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    // taskï¿½ï¿½Îªï¿½ï¿½Æ·ï¿½ï¿½taskï¿½ï¿½Òªï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª ï¿½ï¿½Òªï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ weightï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Æ·ï¿½Ä¼ï¿½Öµvalue
+    // ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½Ú¹Ì¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ ×°ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ÃµÄ¼ï¿½Öµï¿½ï¿½ï¿½
+    //dp[i][j]ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½Ç°iï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½dp[i][j]ÖµÎªÇ°iï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½Öµ
     // dp[i][j]=Math.max(dp[i-1][j-weight[i]]+value[i],dp[i-1][j])
     public static void main(String[] args) {
-        int weight[]=new int[]{0,20,30,50,30,50,30,40,10};
-        int value[]=new int[]{0,300,500,620,370,400,450,380,150};
+        int weight[] = new int[]{0, 20, 30, 50, 30, 50, 30, 40, 10};
+        int value[] = new int[]{0, 300, 500, 620, 370, 400, 450, 380, 150};
         int x;
-        Scanner scanner=new Scanner(System.in);
-        x=scanner.nextInt();
-        if(x<10)
+        Scanner scanner = new Scanner(System.in);
+        x = scanner.nextInt();
+        if (x < 10)
             System.out.println(0);
-        int dp[][]=new int[9][x+1];
-        for(int i=0;i<=x;i++){
-            dp[0][i]=0;
+        int dp[][] = new int[9][x + 1];
+        for (int i = 0; i <= x; i++) {
+            dp[0][i] = 0;
         }
-        for(int i=1;i<weight.length;i++){
-            for(int j=0;j<=x;j++){
-                if(j>=weight[i]) {
-
+        for (int i = 1; i < weight.length; i++) {
+            for (int j = 0; j <= x; j++) {
+                if (j >= weight[i]) {
                     dp[i][j] = Math.max(dp[i - 1][j - weight[i]] + value[i], dp[i - 1][j]);
-                }
-                    else dp[i][j]=dp[i-1][j];
+                } else dp[i][j] = dp[i - 1][j];
             }
         }
         System.out.println(dp[8][x]);
     }
 }
 /*
-±³°üÎÊÌâ
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 dp[i][j]=dp[i-1][j-weight[i-1]]+value(i-1);
  */
 /*
-Èº²¢ÐÐ´¦ÀíÎÄ¼þ
-ÔÚ½øÐÐ´óÊý¾ÝÈÎÎñ¼ÆËãµÄÊ±ºò£¬Í¨³£½«Ò»¸ö½Ï´óµÄµ¥¸ö·þÎñÆ÷ÎÞ·¨´¦ÀíµÄÎÄ¼þ£¬²ð·Ö³É¶à¸öÐ¡ÎÄ¼þ£¬
-È»ºó½«Ò»¸ö¸öµÄÐ¡ÎÄ¼þ·Ö·¢µ½¶à¸ö·þÎñÆ÷ÉÏ½øÐÐ´¦Àí¡£²»Í¬µÄÈÎÎñ£¬
-¿É²ð½â³öµÄµ¥¶À´¦ÀíµÄÎÄ¼þÒÔ¼°Íê³ÉÕâ¸öÈÎÎñËùÐèÒªµÄ·þÎñÆ÷ÊýÁ¿¾ù²»ÏàÍ¬£¬ÇÒÈÎÎñÊÇÒ»¸öÕûÌå£¬
-Èç¹ûÐèÒªµÄ·þÎñÆ÷¸öÊý²»ÄÜÂú×ã£¬ÔòÈÎÎñÎÞ·¨Ö´ÐÐ¡£¼ÙÉèÎÒÃÇÒ»¸öÓÉ¶àÌ¨»úÆ÷×é³ÉµÄ¼¯Èº£¬
-´ËÊ±À´ÁËÈçÏÂÈÎÎñÐèÒªÍê³É(¿É²ð·Ö´¦ÀíµÄÐ¡ÎÄ¼þ¸öÊý/ÐèÒªµÄ·þÎñÆ÷¸öÊý£©£º
+Èºï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
+ï¿½Ú½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ï´ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ö³É¶ï¿½ï¿½Ð¡ï¿½Ä¼ï¿½ï¿½ï¿½
+È»ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½Ä¼ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½É²ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½å£¬
+ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ·ï¿½Ö´ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½É¶ï¿½Ì¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÉµÄ¼ï¿½Èºï¿½ï¿½
+ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½(ï¿½É²ï¿½Ö´ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½Òªï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 task1:300/20
 task2:500/30
 task3:620/50
@@ -51,9 +49,9 @@ task5:400/50
 task6:450/30
 task7:380/40
 task8:150/10
-ÇëÎÊ¼¯ÈºÖÐ¹²xÌ¨»úÆ÷£¬Í¨¹ý×îÓÅµ÷¶È£¬´Ë¼¯Èº×î¶àÒ»´ÎÐÔ¿ÉÒÔÍ¬Ê±´¦Àí¶àÉÙ¸öÐ¡ÎÄ¼þ£¿
-ÊäÈëÃèÊö£º ¼¯ÈºÖÐµÄ»úÆ÷Ì¨Êýx
-Êä³öÃèÊö£º ¼¯ÈºÄÜ¹»²¢ÐÐ´¦ÀíµÄ×î´óÐ¡ÎÄ¼þÊý
-Ê¾Àý1£º ÊäÈë 10 Êä³ö 150
+ï¿½ï¿½ï¿½Ê¼ï¿½Èºï¿½Ð¹ï¿½xÌ¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½Åµï¿½ï¿½È£ï¿½ï¿½Ë¼ï¿½Èºï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½Í¬Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¸ï¿½Ð¡ï¿½Ä¼ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Èºï¿½ÐµÄ»ï¿½ï¿½ï¿½Ì¨ï¿½ï¿½x
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Èºï¿½Ü¹ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½Ä¼ï¿½ï¿½ï¿½
+Ê¾ï¿½ï¿½1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 10 ï¿½ï¿½ï¿½ 150
 
  */

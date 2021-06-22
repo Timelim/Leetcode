@@ -5,22 +5,21 @@ import java.util.Stack;
 
 public class Solution739 {
     public int[] dailyTemperatures(int[] T) {
-        int res[]=new int[T.length];
-        if(T.length==0)
+        int res[] = new int[T.length];
+        if (T.length == 0)
             return res;
-        Arrays.fill(res,0);
-        Stack<Integer> stack=new Stack<>();
+        Arrays.fill(res, 0);
+        Stack<Integer> stack = new Stack<>();
         stack.push(0);
-        for(int i=1;i<T.length;i++)
-        {
-            int top=stack.peek();
+        for (int i = 1; i < T.length; i++) {
+            int top = stack.peek();
 
-            while (T[i]>T[top]){
-                res[top]=i-top;
+            while (T[i] > T[top]) {
+                res[top] = i - top;
                 stack.pop();
-                if(stack.empty())
+                if (stack.empty())
                     break;
-                top=stack.peek();
+                top = stack.peek();
             }
             stack.push(i);
         }

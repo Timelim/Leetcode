@@ -2,23 +2,56 @@ package Problem;
 
 public class Solution581 {
     public int findUnsortedSubarray(int[] nums) {
-        int res=0;
-        int min=nums[0],mini=0;
-        for(int i=0;i<nums.length;i++){
-           if(nums[i]<min)
-           {
-               min = nums[i];
-               mini=i;
-           }
-
+        if (nums.length == 1)
+            return 0;
+        int res = 0;
+        int left = 0;
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] > nums[i + 1]) {
+                left = i;
+                break;
+            }
         }
 
+        int right = 0;
+        for (int i = nums.length - 1; i > 0; i--) {
+            if (nums[i] < nums[i - 1]) {
+                right = i;
+                break;
+            }
+        }
+//        System.out.println(left);
+//        System.out.println(right);
+        int min = nums[left], max = nums[left];
+        for (int i = left; i <= right; i++) {
+            min = Math.min(min, nums[i]);
+            max = Math.max(max, nums[i]);
+        }
+//        System.out.println(min);
+//        System.out.println(max);
+        for (int i = 0; i < left; i++) {
+            if (min < nums[i]) {
+                left = i ;
+                break;
+            }
+        }
+        for (int i = nums.length - 1; i > right; i--) {
+            if (nums[i] < max) {
+                right = i;
+                break;
+            }
+        }
+//        System.out.println(left);
+//        System.out.println(right);
+        if(right==left)
+            return 0;
+        res = right - left+1 ;
         return res;
     }
 
     public static void main(String[] args) {
         Solution581 t = new Solution581();
-        System.out.println(t.findUnsortedSubarray(new int[]{1,10,6,7,8}));
+        System.out.println(t.findUnsortedSubarray(new int[]{2,6,4,8,10,9,15}));
     }
 }
 /*

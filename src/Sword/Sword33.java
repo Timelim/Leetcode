@@ -1,8 +1,10 @@
 package Sword;
 
+import java.util.Stack;
+
 public class Sword33 {
-    public boolean verifyPostorder(int[] postorder) {
-        return dfs(postorder,0,postorder.length-1);
+    public boolean verifyPostorder1(int[] postorder) {
+        return dfs(postorder, 0, postorder.length - 1);
     }
 
     public boolean dfs(int[] postorder, int low, int high) {
@@ -12,6 +14,21 @@ public class Sword33 {
         int m = p;
         while (postorder[m] > postorder[high]) m++;
         return m == high && dfs(postorder, low, p - 1) && dfs(postorder, p, high - 1);
+    }
+
+    //单调栈
+    //二叉树后序遍历 左右根，倒序 根右左
+    public boolean verifyPostorder(int[] postorder) {
+        Stack<Integer> stack = new Stack<>();
+        int root = Integer.MAX_VALUE;
+        for (int i = postorder.length - 1; i >= 0; i--) {
+            if (postorder[i] > root)
+                return false;
+            while (!stack.isEmpty() && stack.peek() > postorder[i])
+                root = stack.pop();
+            stack.add(postorder[i]);
+        }
+        return true;
     }
 }
 /*

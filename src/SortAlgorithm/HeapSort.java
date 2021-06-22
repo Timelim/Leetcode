@@ -14,7 +14,7 @@ public class HeapSort {
             data[child]=tmp;
             child = 2 * child + 1;
         }
-        data[parent] = tmp;
+        //data[parent] = tmp;
     }
 
     public void heapSort(int data[]) {

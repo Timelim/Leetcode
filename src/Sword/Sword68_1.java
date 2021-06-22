@@ -1,4 +1,5 @@
 package Sword;
+
 public class Sword68_1 {
     //dfs的方法
     public TreeNode lowestCommonAncestor1(TreeNode root, TreeNode p, TreeNode q) {
@@ -16,13 +17,14 @@ public class Sword68_1 {
             return root;
         return l == null ? r : l;
     }
+
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        TreeNode res=root;
-        while (true){
-            if(p.val>res.val&&q.val>res.val)
-                res=res.right;
-            else if(p.val<res.val&&q.val<res.val)
-                res=res.left;
+        TreeNode res = root;
+        while (true) {
+            if (p.val > res.val && q.val > res.val)
+                res = res.right;
+            else if (p.val < res.val && q.val < res.val)
+                res = res.left;
             else return res;
         }
     }

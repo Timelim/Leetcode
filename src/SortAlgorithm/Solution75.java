@@ -4,6 +4,7 @@ public class Solution75 {
     public void sortColors(int[] nums) {
         int p0 = 0, p1 = 0;
         for (int i = 0; i < nums.length ; i++) {
+            //和p1交换
             if (nums[i] == 1) {
                 int tmp = nums[p1];
                 nums[p1] = nums[i];
